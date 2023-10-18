@@ -1,0 +1,126 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.11.1
+  creationTimestamp: null
+  name: scenariotemplates.orca.paermini.com
+spec:
+  group: orca.paermini.com
+  names:
+    kind: ScenarioTemplate
+    listKind: ScenarioTemplateList
+    plural: scenariotemplates
+    singular: scenariotemplate
+  scope: Namespaced
+  versions:
+  - name: v1beta1
+    schema:
+      openAPIV3Schema:
+        description: ScenarioTemplate is the Schema for the scenariotemplates API
+        properties:
+          apiVersion:
+            description: 'APIVersion defines the versioned schema of this representation
+              of an object. Servers should convert recognized schemas to the latest
+              internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+            type: string
+          kind:
+            description: 'Kind is a string value representing the REST resource this
+              object represents. Servers may infer this from the endpoint the client
+              submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: ScenarioTemplateSpec defines the desired state of ScenarioTemplate
+            properties:
+              mqttClientSiteSpec:
+                items:
+                  description: MqttClientSpec defines the desired state of MqttClient
+                  properties:
+                    clientConfigs:
+                      items:
+                        properties:
+                          instanceCount:
+                            type: integer
+                          messagePerHourPerClient:
+                            type: integer
+                          publishTopics:
+                            items:
+                              type: string
+                            type: array
+                          subscribeTopics:
+                            items:
+                              type: string
+                            type: array
+                        required:
+                        - instanceCount
+                        type: object
+                      type: array
+                    namePrefix:
+                      type: string
+                    protocol:
+                      type: string
+                    targetType:
+                      type: string
+                  required:
+                  - clientConfigs
+                  - namePrefix
+                  - protocol
+                  - targetType
+                  type: object
+                type: array
+              opcuaSiteSpec:
+                items:
+                  description: OpcuaServerSpec defines the desired state of OpcuaServer
+                  properties:
+                    assetPerServer:
+                      description: Number of Assets for each server
+                      type: integer
+                    assetUpdateRatePerSecond:
+                      description: Asset update rate per second
+                      type: integer
+                    dockerImage:
+                      description: Docker image ID to use (if not defined, uses default)
+                      properties:
+                        prefix:
+                          type: string
+                        tag:
+                          type: string
+                      required:
+                      - prefix
+                      - tag
+                      type: object
+                    namePrefix:
+                      type: string
+                    publishingIntervalMs:
+                      description: Publishing interval in MS
+                      type: integer
+                    serverCount:
+                      description: Number of OPCUA servers to deploy
+                      type: integer
+                    tagCount:
+                      description: Number of tags for each server
+                      type: integer
+                  required:
+                  - assetPerServer
+                  - assetUpdateRatePerSecond
+                  - namePrefix
+                  - publishingIntervalMs
+                  - serverCount
+                  - tagCount
+                  type: object
+                type: array
+            required:
+            - mqttClientSiteSpec
+            - opcuaSiteSpec
+            type: object
+          status:
+            description: ScenarioTemplateStatus defines the observed state of ScenarioTemplate
+            type: object
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}
