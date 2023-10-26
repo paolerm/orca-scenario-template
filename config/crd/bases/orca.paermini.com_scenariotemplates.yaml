@@ -42,33 +42,59 @@ spec:
                     clientConfigs:
                       items:
                         properties:
-                          instanceCount:
+                          clientCount:
+                            type: integer
+                          clientModelId:
+                            type: string
+                          maxCpuLimits:
+                            type: integer
+                          maxMemoryLimits:
                             type: integer
                           messagePerHourPerClient:
                             type: integer
+                          minCpuRequests:
+                            type: integer
+                          minMemoryRequests:
+                            type: integer
+                          publishQoS:
+                            type: string
                           publishTopics:
                             items:
                               type: string
                             type: array
+                          subscribeQoS:
+                            type: string
                           subscribeTopics:
                             items:
                               type: string
                             type: array
                         required:
-                        - instanceCount
+                        - clientCount
                         type: object
                       type: array
-                    namePrefix:
+                    connectionLimitPerSecond:
+                      type: integer
+                    enableTls:
+                      type: boolean
+                    hostName:
                       type: string
+                    id:
+                      type: string
+                    port:
+                      type: integer
                     protocol:
                       type: string
-                    targetType:
-                      type: string
+                    sendingLimitPerSecond:
+                      type: integer
                   required:
                   - clientConfigs
-                  - namePrefix
+                  - connectionLimitPerSecond
+                  - enableTls
+                  - hostName
+                  - id
+                  - port
                   - protocol
-                  - targetType
+                  - sendingLimitPerSecond
                   type: object
                 type: array
               opcuaSiteSpec:
@@ -101,8 +127,6 @@ spec:
                     logLevel:
                       description: Log level
                       type: string
-                    namePrefix:
-                      type: string
                     opcuaServerLogLevel:
                       description: OPCUA server log level
                       type: string
@@ -110,7 +134,6 @@ spec:
                       description: Node sampling interval in MS
                       type: integer
                     serverCount:
-                      description: Number of OPCUA servers to deploy
                       type: integer
                     tagCount:
                       description: Number of tags for each server
@@ -119,7 +142,6 @@ spec:
                   - assetPerServer
                   - assetUpdateRatePerSecond
                   - changeRateMs
-                  - namePrefix
                   - samplingInterval
                   - serverCount
                   - tagCount
