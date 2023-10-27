@@ -110,30 +110,23 @@ spec:
                     changeRateMs:
                       description: Rate in MS to change nodes
                       type: integer
-                    dockerImage:
+                    dockerImageId:
                       description: Docker image ID to use (if not defined, uses default)
-                      properties:
-                        imageName:
-                          type: string
-                        prefix:
-                          type: string
-                        tag:
-                          type: string
-                      required:
-                      - imageName
-                      - prefix
-                      - tag
-                      type: object
+                      type: string
+                    id:
+                      description: Id
+                      type: string
                     logLevel:
                       description: Log level
                       type: string
                     opcuaServerLogLevel:
                       description: OPCUA server log level
                       type: string
-                    samplingInterval:
+                    samplingIntervalMs:
                       description: Node sampling interval in MS
                       type: integer
                     serverCount:
+                      description: Number of Servers
                       type: integer
                     tagCount:
                       description: Number of tags for each server
@@ -142,7 +135,8 @@ spec:
                   - assetPerServer
                   - assetUpdateRatePerSecond
                   - changeRateMs
-                  - samplingInterval
+                  - id
+                  - samplingIntervalMs
                   - serverCount
                   - tagCount
                   type: object
