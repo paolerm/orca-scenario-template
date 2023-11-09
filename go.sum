@@ -236,6 +236,8 @@ github.com/paolerm/orca-opcua-server v0.0.0-20231027202745-465af6b30b25 h1:kzDHT
 github.com/paolerm/orca-opcua-server v0.0.0-20231027202745-465af6b30b25/go.mod h1:PHn6cnwHoMknJZ2bq9W038g4o/DdsXN1cM27JZiT2Ls=
 github.com/paolerm/orca-opcua-server v0.0.0-20231108190530-e3177bc55f4b h1:NoIQ4w2TO+Jts4miWLqpYbnvDt8u7rRx0Ve7wfpAQYg=
 github.com/paolerm/orca-opcua-server v0.0.0-20231108190530-e3177bc55f4b/go.mod h1:PHn6cnwHoMknJZ2bq9W038g4o/DdsXN1cM27JZiT2Ls=
+github.com/paolerm/orca-opcua-server v0.0.1 h1:2X6MECtwzi9iRnLcHfwvT1cLWvxKWfGexb5T8WUokmc=
+github.com/paolerm/orca-opcua-server v0.0.1/go.mod h1:PHn6cnwHoMknJZ2bq9W038g4o/DdsXN1cM27JZiT2Ls=
 github.com/pkg/errors v0.8.0/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
